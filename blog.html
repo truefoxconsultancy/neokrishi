@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Krishi Blog — Soil Health, Composting & Sustainable Agriculture</title>
+<meta name="description" content="Read expert articles on vermicomposting, soil health, organic farming, and sustainable agriculture. Learn how biological processes rebuild healthy soil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg-primary:#FFFFFF;
+  --bg-secondary:#F5F3EC;
+  --bg-card:#FFFFFF;
+  --text-primary:#13291A;
+  --text-secondary:#4B5D4F;
+  --green-deep:#1B4D2E;
+  --green-mid:#2E7D32;
+  --green-accent:#6FCF52;
+  --gold:#B8875A;
+  --border-subtle:#E3E0D4;
+  --card-elevation:0 4px 24px rgba(19,41,26,0.08);
+  --nav-bg:rgba(255,255,255,0.72);
+  --grain-opacity:0.05;
+  --gradient-brand:linear-gradient(135deg,var(--green-accent),var(--green-mid),var(--green-deep));
+  --focus-ring:0 0 0 3px rgba(46,125,50,0.35);
+  --font-display:'Sora','Manrope',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+
+[data-theme="dark"]{
+  --bg-primary:#0B1A10;
+  --bg-secondary:#102415;
+  --bg-card:#132A18;
+  --text-primary:#E7F0DE;
+  --text-secondary:#A8C2A0;
+  --green-deep:#1F5C1A;
+  --green-mid:#4C9A2A;
+  --green-accent:#8CC63F;
+  --gold:#C9995F;
+  --border-subtle:#1E3624;
+  --card-elevation:0 0 0 1px rgba(140,198,63,0.14);
+  --nav-bg:rgba(11,26,16,0.72);
+  --grain-opacity:0.06;
+  --focus-ring:0 0 0 3px rgba(140,198,63,0.4);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  transition:background-color .35s ease,color .35s ease;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:var(--font-display);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin:0;
+  color:var(--text-primary);
+}
+
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+ul,ol{margin:0;padding-left:24px;}
+li{margin-bottom:10px;}
+img{max-width:100%;display:block;}
+
+:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:6px;}
+
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* NAV */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background-color .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+}
+.nav.scrolled{
+  background:var(--nav-bg);
+  backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid var(--border-subtle);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+  flex:none;
+}
+.logo .word{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:21px;
+  letter-spacing:-0.01em;
+}
+.logo .word .neo{
+  background:var(--gradient-brand);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.logo .word .krishi{color:var(--text-primary);}
+.logo .tag{
+  font-size:9.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-top:3px;
+  font-weight:600;
+}
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:24px;
+  font-size:14.5px;
+  font-weight:600;
+  flex:1;
+}
+@media (min-width:900px){.nav-links{display:flex;}}
+.nav-links a{
+  color:var(--text-secondary);
+  transition:color .2s ease;
+}
+.nav-links a:hover{color:var(--text-primary);}
+.nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+.theme-toggle{
+  width:44px;height:44px;
+  border-radius:50%;
+  border:1px solid var(--border-subtle);
+  background:var(--bg-card);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-primary);
+  transition:border-color .2s ease;
+  flex:none;
+}
+.theme-toggle:hover{border-color:var(--green-mid);}
+.theme-toggle svg{width:19px;height:19px;}
+
+/* PAGE HEADER */
+.page-header{
+  padding:80px 0 60px;
+  text-align:center;
+}
+.page-header h1{
+  font-size:clamp(32px,5vw,48px);
+  margin-bottom:16px;
+}
+.page-header .sub{
+  font-size:17px;
+  color:var(--text-secondary);
+  max-width:720px;
+  margin:0 auto;
+}
+
+/* BLOG LIST */
+.blog-list{
+  max-width:900px;
+  margin:0 auto 80px;
+}
+
+.blog-item{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:12px;
+  margin-bottom:20px;
+  overflow:hidden;
+  box-shadow:var(--card-elevation);
+}
+
+.blog-header{
+  padding:28px;
+  cursor:pointer;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  transition:background .2s ease;
+}
+.blog-header:hover{background:var(--bg-secondary);}
+
+.blog-title-wrap h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.blog-meta{
+  display:flex;
+  gap:12px;
+  font-size:12px;
+  color:var(--text-secondary);
+  flex-wrap:wrap;
+}
+.blog-meta span{display:flex;align-items:center;gap:4px;}
+.blog-dot{width:3px;height:3px;border-radius:50%;background:var(--border-subtle);}
+
+.blog-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  flex:none;
+  border-radius:50%;
+  background:var(--bg-secondary);
+  color:var(--text-primary);
+  transition:transform .3s ease,background .3s ease;
+}
+.blog-item.open .blog-toggle{
+  transform:rotate(180deg);
+  background:var(--gradient-brand);
+  color:#fff;
+}
+
+.blog-content{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .4s ease;
+  border-top:1px solid var(--border-subtle);
+}
+.blog-item.open .blog-content{grid-template-rows:1fr;}
+
+.blog-content-inner{
+  overflow:hidden;
+  padding:0 28px;
+}
+.blog-item.open .blog-content-inner{
+  padding:28px;
+}
+
+.blog-text{
+  color:var(--text-secondary);
+  font-size:15px;
+  line-height:1.8;
+}
+
+.blog-text h4{
+  font-size:16px;
+  margin:24px 0 12px;
+  color:var(--text-primary);
+}
+
+.blog-text p{
+  margin-bottom:14px;
+}
+
+.blog-text ul, .blog-text ol{
+  margin:14px 0;
+}
+
+.blog-text li{color:var(--text-secondary);}
+
+.blog-text strong{
+  font-weight:700;
+  color:var(--text-primary);
+}
+
+/* FOOTER */
+.site-footer{
+  border-top:1px solid var(--border-subtle);
+  padding:36px 0;
+  margin-top:80px;
+}
+.footer-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.footer-inner .word{font-size:15px;}
+.footer-copy{font-size:13px;color:var(--text-secondary);}
+
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  color:var(--green-mid);
+  margin-bottom:40px;
+  transition:gap .2s ease;
+}
+[data-theme="dark"] .back-link{color:var(--green-accent);}
+.back-link:hover{gap:12px;}
+.back-link svg{width:16px;height:16px;}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo" aria-label="Neo Krishi home">
+      <span class="word"><span class="neo">Neo</span> <span class="krishi">Krishi</span></span>
+      <span class="tag">Unlocking Soil Wealth</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#problem-solution">Problem/Solution</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#products">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="guide.html">Vermicompost Guide</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<div class="wrap">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    Back to Home
+  </a>
+  <div class="page-header">
+    <h1>Neo Krishi Blog</h1>
+    <p class="sub">Expert insights on soil health, composting, sustainable agriculture, and biological farming. Learn how to rebuild healthy soil and create a circular agricultural ecosystem.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="blog-list">
+
+    <!-- BLOG 1 -->
+    <div class="blog-item" data-blog="1">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Your Kitchen Waste Isn't Waste: How Organic Matter Can Go Back to the Soil</h3>
+          <div class="blog-meta">
+            <span>Organic Waste</span>
+            <span class="blog-dot"></span>
+            <span>8 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Every day, we throw away things that were once alive. Vegetable peels. Fruit scraps. Leftover food. Fallen leaves. Garden waste. We call them waste because they have completed their immediate use in our kitchens. But nature doesn't work that way.</p>
+            
+            <p>In nature, there is almost no such thing as "waste." A fallen leaf becomes food for microorganisms. Dead plant material becomes organic matter. Organic matter becomes part of the soil. The soil supports new plants, which eventually return more organic material to the same system. It is a cycle. The problem begins when we interrupt it.</p>
+
+            <h4>What happens to organic waste after we throw it away?</h4>
+            <p>A significant portion of household waste is organic. When this material is mixed with other waste and sent to disposal sites, something valuable is lost. The nutrients contained in food scraps and plant material no longer return to agricultural soil. Instead, organic waste can decompose under oxygen-poor conditions in landfills, contributing to greenhouse-gas emissions.</p>
+
+            <h4>Composting changes the direction</h4>
+            <p>Composting is essentially the process of allowing organic material to decompose and become a useful soil amendment. Instead of treating vegetable scraps, leaves and other biodegradable materials as something to discard, we treat them as a resource. Microorganisms break down organic matter and gradually transform it into compost.</p>
+
+            <h4>Why does the soil need this?</h4>
+            <p>Healthy soil is a living system. It contains organic matter, microorganisms, air, water and minerals that interact continuously. Modern agriculture increasingly focused on extracting more from the land without sufficiently restoring what was removed. That is why soil degradation isn't simply a fertilizer problem. It is a <strong>soil-cycle problem</strong>.</p>
+
+            <h4>From waste management to soil management</h4>
+            <p>This changes the way we should think about organic waste. The question shouldn't only be: "How do we dispose of this waste?" A better question is: "How do we return its value to the biological system?" Composting and vermicomposting are two ways of doing exactly that.</p>
+
+            <p><strong>What leaves the kitchen can eventually return to the soil. And when it does, the cycle starts again.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 2 -->
+    <div class="blog-item" data-blog="2">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Vermicompost Explained: What Earthworms Actually Do for Your Soil</h3>
+          <div class="blog-meta">
+            <span>Vermicomposting</span>
+            <span class="blog-dot"></span>
+            <span>7 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>If you have ever seen a handful of dark, crumbly vermicompost, it is easy to think of it simply as another kind of compost. But vermicompost has a rather unusual production system. Its workers are alive. Earthworms.</p>
+
+            <h4>So, what exactly is vermicompost?</h4>
+            <p>Vermicompost is produced when earthworms and associated microorganisms break down suitable organic material. One commonly used species is the red wiggler, <strong>Eisenia fetida</strong>. The worms consume organic matter and produce what is known as worm castings. Those castings become the material we call vermicompost.</p>
+
+            <h4>The earthworm is not working alone</h4>
+            <p>It is tempting to imagine a worm simply eating kitchen waste and producing fertilizer. The actual system is more complex. As organic matter passes through the earthworm's digestive system, it is processed and transformed. Microorganisms associated with the process further break down organic compounds and contribute to nutrient transformation.</p>
+
+            <h4>What can earthworms eat?</h4>
+            <p>Suitable feed materials can include:</p>
+            <ul>
+              <li>Vegetable scraps</li>
+              <li>Fruit scraps</li>
+              <li>Coffee grounds</li>
+              <li>Certain plant residues</li>
+              <li>Other suitable biodegradable organic matter</li>
+            </ul>
+
+            <h4>What makes vermicompost useful?</h4>
+            <p><strong>Better soil structure:</strong> Organic amendments can help improve the physical condition of soil and support the movement of water and air.</p>
+            <p><strong>Nutrient availability:</strong> The material contains plant nutrients including nitrogen, phosphorus and potassium.</p>
+            <p><strong>Microbial activity:</strong> Vermicompost is associated with beneficial microbial activity that can contribute to a biologically active soil environment.</p>
+
+            <h4>Vermicompost isn't magic</h4>
+            <p>Earthworms need appropriate conditions. Moisture matters. Temperature matters. Feeding matters. Understanding these limitations is part of understanding the process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 3 -->
+    <div class="blog-item" data-blog="3">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Earthworms: The Tiny Farmers Working Beneath Your Feet</h3>
+          <div class="blog-meta">
+            <span>Soil Health</span>
+            <span class="blog-dot"></span>
+            <span>9 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Farmers spend enormous amounts of time looking at what happens above the soil. Leaves. Flowers. Fruit. Crop height. Pests. But some of the most important work on a farm happens where we can't easily see it. Below the surface.</p>
+
+            <h4>The farmer's little workers</h4>
+            <p>Earthworms have long been associated with healthy soils. In vermicomposting, they play a particularly important role by consuming suitable organic material and producing worm castings. But their importance goes beyond simply producing vermicompost. As they move through organic material and soil environments, they interact with the physical and biological structure around them. That creates something important: <strong>movement.</strong></p>
+
+            <h4>But what happens when vermicompost reaches the soil?</h4>
+            <p>The value of vermicompost isn't simply its nutrient content. It can contribute to soil structure, aeration and moisture retention. This matters because soil is a physical environment. Roots need space. Water needs somewhere to move. Air needs to reach the root zone. Microorganisms need a suitable environment.</p>
+
+            <h4>Soil is alive</h4>
+            <p>This is perhaps the biggest conceptual shift agriculture needs. We often speak about soil as though it were simply a growing medium. But <strong>soil is an ecosystem.</strong> For thousands of years, natural ecosystems continuously recycled nutrients through fallen leaves, roots, microorganisms and decomposing organic matter. Agriculture interrupted parts of that cycle.</p>
+
+            <h4>The lesson from the earthworm</h4>
+            <p>Earthworms don't understand agricultural policy. They simply participate in a biological cycle that has existed for an extraordinarily long time. That is the lesson. <strong>Agriculture doesn't have to fight biology. It can work with it.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 4 -->
+    <div class="blog-item" data-blog="4">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Vermiwash: The Liquid Side of Vermicomposting</h3>
+          <div class="blog-meta">
+            <span>Biological Inputs</span>
+            <span class="blog-dot"></span>
+            <span>6 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Not everything produced by a vermicomposting system is solid. There is also a liquid component. It is commonly known as <strong>vermiwash.</strong> And while vermicompost receives most of the attention, vermiwash represents another interesting way of thinking about biological inputs.</p>
+
+            <h4>What is vermiwash?</h4>
+            <p>Vermiwash is a liquid organic input associated with vermicomposting. In a properly designed system, drainage allows nutrient-containing liquid to be collected from the vermicomposting unit. Unlike vermicompost, which is a solid material, vermiwash is applied in liquid form. That makes its use different.</p>
+
+            <h4>Why is vermiwash interesting?</h4>
+            <p>Vermiwash contains nutrients and micronutrients and naturally occurring compounds associated with plant growth. The article describes potential applications related to root development, plant growth, flowering, nutrient uptake and soil fertility.</p>
+
+            <h4>How is vermiwash used?</h4>
+            <p><strong>Foliar application:</strong> The diluted liquid can be sprayed onto plant foliage.</p>
+            <p><strong>Soil application:</strong> It can also be applied directly to the soil as a drench.</p>
+            <p>A general dilution guideline is <strong>1 part vermiwash to 9 parts water</strong>.</p>
+
+            <h4>Vermiwash and the bigger soil-health picture</h4>
+            <p>Agriculture is not only about adding nutrients. It is about creating conditions in which soil and plants can function well. The question is not merely: "What can we add to the plant?" The better question is: <strong>"What can we do to support the biological system around the plant?"</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 5 -->
+    <div class="blog-item" data-blog="5">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>India's Traditional Composting Wisdom: We Didn't Invent Soil Health Yesterday</h3>
+          <div class="blog-meta">
+            <span>Agricultural Heritage</span>
+            <span class="blog-dot"></span>
+            <span>10 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Before composting became an environmental buzzword, Indian farmers were already returning organic material to the land. The methods varied from region to region. The materials varied. The terminology varied. But the principle was remarkably consistent: <strong>What comes from the land can return to the land.</strong></p>
+
+            <h4>1. Pit composting</h4>
+            <p>One of the simplest approaches is pit composting. Organic materials such as kitchen waste, crop residues and animal manure are placed into a pit and allowed to decompose. The system works by using biological decomposition rather than treating organic matter as disposable.</p>
+
+            <h4>2. Kambha composting</h4>
+            <p>Kambha composting is associated with South India and uses specially designed earthen or terracotta containers with multiple chambers. Organic material is added and earthworms can be introduced to assist decomposition.</p>
+
+            <h4>3. Leaf composting</h4>
+            <p>Leaves are one of the most obvious forms of organic matter available in agricultural and household environments. Instead of burning or discarding them, they can be collected and allowed to decompose.</p>
+
+            <h4>4. Biogas and its residual slurry</h4>
+            <p>Traditional rural systems have also used animal dung in biogas plants. Anaerobic digestion produces biogas, while the remaining slurry can serve as a nutrient-containing agricultural input.</p>
+
+            <h4>5. Bokashi & 6. NADEP composting</h4>
+            <p>Bokashi is a fermentation-based approach that originated in Japan but has become known in India. NADEP composting uses a specially constructed structure and combines organic residues and manure while managing aeration.</p>
+
+            <h4>What do all these methods have in common?</h4>
+            <p>They recognise something modern agriculture sometimes forgets: <strong>Organic matter has value.</strong> Traditional knowledge recognised the importance of returning organic material to agricultural systems. Modern science gives us increasingly sophisticated ways to understand why that matters. <strong>Neo Krishi sits at that intersection.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 6 -->
+    <div class="blog-item" data-blog="6">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Vermicompost vs Compost: Which One Is Actually Better?</h3>
+          <div class="blog-meta">
+            <span>Comparison</span>
+            <span class="blog-dot"></span>
+            <span>8 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>One question appears again and again: <strong>Is vermicompost better than compost?</strong> The honest answer is: <strong>It depends.</strong> Traditional composting and vermicomposting are not identical processes, and neither one is universally better for every situation.</p>
+
+            <h4>How are they different?</h4>
+            <p><strong>Traditional composting</strong> relies primarily on microorganisms such as bacteria and fungi to decompose organic material. <strong>Vermicomposting</strong> introduces earthworms into the process.</p>
+
+            <h4>Which one is faster?</h4>
+            <p>Traditional composting can take several months to a year. Vermicomposting can produce material in weeks to a few months under appropriate conditions, roughly <strong>60–90 days</strong>.</p>
+
+            <h4>What about temperature?</h4>
+            <p>Traditional composting involves heat of approximately <strong>49–71°C</strong> for active thermophilic conditions. Earthworms operate under considerably cooler conditions, approximately <strong>13–25°C</strong>.</p>
+
+            <h4>Which handles larger quantities?</h4>
+            <p>Large-scale composting can accommodate a broader range of organic materials, including larger plant residues, branches and agricultural waste. Vermicomposting is generally better suited to smaller-scale applications such as homes, community gardens and finer organic materials.</p>
+
+            <h4>So which should you choose?</h4>
+            <p><strong>Large quantities of mixed organic material?</strong> Traditional composting may be more appropriate. <strong>Kitchen scraps and finer organic material?</strong> Vermicomposting can be a strong option. The answer isn't about choosing a winner. It's about choosing the right biological process for the right material and scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 7 -->
+    <div class="blog-item" data-blog="7">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>How Earthworms Turn Food Waste Into "Black Gold": The Science of Vermicomposting</h3>
+          <div class="blog-meta">
+            <span>Science</span>
+            <span class="blog-dot"></span>
+            <span>9 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Put vegetable scraps into a suitable vermicomposting system and something remarkable begins to happen. The food doesn't simply disappear. It changes. Earthworms consume it. Microorganisms act on it. Complex organic materials are broken down. And eventually, what was once food waste becomes a dark, crumbly material that can return to the soil.</p>
+
+            <h4>Meet the workers</h4>
+            <p>At the centre of many vermicomposting systems are earthworms such as red wigglers, commonly identified as <strong>Eisenia fetida.</strong> They are remarkably efficient biological processors. Suitable organic materials can include vegetable and fruit scraps, coffee grounds and certain other biodegradable materials.</p>
+
+            <h4>The digestive process</h4>
+            <p>Earthworms consume organic material and process it through their digestive systems. During this process, enzymes and microorganisms help break down complex organic compounds into simpler forms. The worm isn't merely "eating garbage." <strong>It is participating in a biological transformation.</strong></p>
+
+            <h4>Then come the microorganisms</h4>
+            <p>Microorganisms play an enormous role in decomposition. Beneficial microorganisms associated with vermicomposting contribute to the breakdown of organic compounds and the release of nutrients such as nitrogen, phosphorus and potassium.</p>
+
+            <h4>From food waste to worm castings</h4>
+            <p>Eventually, the process produces what we call worm castings or vermicompost. The material is typically dark and crumbly and contains nutrients and organic components useful in soil management. That is why vermicompost is sometimes described as "black gold." But <strong>the real story is biological recycling.</strong></p>
+
+            <h4>Why does this matter to soil?</h4>
+            <p>Soil isn't simply a place where fertilizer is deposited. It is an environment where countless biological processes take place. The question isn't simply how to push a crop toward higher output. The question is how to create healthier conditions in the soil so that productive agriculture becomes more sustainable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG 8 -->
+    <div class="blog-item" data-blog="8">
+      <div class="blog-header">
+        <div class="blog-title-wrap">
+          <h3>Vermicomposting: Strengths, Limitations and the Opportunity Ahead</h3>
+          <div class="blog-meta">
+            <span>Opportunity</span>
+            <span class="blog-dot"></span>
+            <span>11 min read</span>
+          </div>
+        </div>
+        <div class="blog-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="blog-content">
+        <div class="blog-content-inner">
+          <div class="blog-text">
+            <p>Vermicomposting is often presented as a simple answer to two major problems: <strong>organic waste</strong> and <strong>soil degradation.</strong> There is truth in that. But a serious conversation about vermicomposting should include its limitations as well.</p>
+
+            <h4>The strengths</h4>
+            <p><strong>1. It gives organic waste another destination</strong> — Suitable food and organic waste can be transformed rather than discarded.</p>
+            <p><strong>2. It produces a valuable soil amendment</strong> — Vermicompost contains nutrients and organic components that can contribute to soil fertility and plant growth.</p>
+            <p><strong>3. It doesn't require enormous infrastructure</strong> — Small-scale vermicomposting can be relatively low-cost and can operate in limited spaces.</p>
+            <p><strong>4. It connects waste management with agriculture</strong> — Instead of thinking about waste and agriculture as two separate problems, vermicomposting connects them. Waste becomes a resource.</p>
+
+            <h4>But there are weaknesses</h4>
+            <p><strong>It isn't instant:</strong> Vermicomposting can take approximately 60–90 days.</p>
+            <p><strong>Capacity can be limited:</strong> A small vermicomposting system isn't designed to process unlimited quantities of waste.</p>
+            <p><strong>Worms need the right conditions:</strong> Moisture, temperature, feeding and protection from excessive heat or sunlight all matter.</p>
+
+            <h4>Where is the opportunity?</h4>
+            <p>One of the most interesting opportunities is <strong>urban agriculture.</strong> As cities grow, organic waste grows with them. At the same time, urban residents are increasingly interested in growing food and understanding where their inputs come from.</p>
+
+            <h4>The bigger opportunity isn't vermicompost</h4>
+            <p>The future of sustainable agriculture cannot depend on one technique. <strong>Vermicomposting is one tool. Composting is another. Biological inputs are another.</strong> But underneath all of them is a bigger objective: <strong>restore the relationship between organic matter, soil biology and agriculture.</strong></p>
+
+            <h4>The real measure of success</h4>
+            <p>The ultimate question isn't: "How much vermicompost did we produce?" It is: <strong>"How much healthier did the soil become?"</strong> How much organic matter returned? How much biological activity was supported? That is the direction in which the conversation needs to move.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="word"><span class="neo" style="background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">Neo</span> <span style="color:var(--text-primary);">Krishi</span></span>
+    <p class="footer-copy">© 2026 Neo Krishi. Unlocking Soil Wealth.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var currentTheme = systemDark ? 'dark' : 'light';
+  var root = document.documentElement;
+
+  function applyTheme(t){
+    currentTheme = t;
+    if(t === 'dark'){
+      root.setAttribute('data-theme','dark');
+      document.getElementById('iconSun').style.display = 'none';
+      document.getElementById('iconMoon').style.display = 'block';
+    } else {
+      root.removeAttribute('data-theme');
+      document.getElementById('iconSun').style.display = 'block';
+      document.getElementById('iconMoon').style.display = 'none';
+    }
+  }
+  applyTheme(currentTheme);
+
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  var nav = document.getElementById('nav');
+  function onScrollNav(){
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, {passive:true});
+
+  // Blog accordion toggle
+  var blogItems = document.querySelectorAll('.blog-item');
+  blogItems.forEach(function(item){
+    var header = item.querySelector('.blog-header');
+    header.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      blogItems.forEach(function(other){ other.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

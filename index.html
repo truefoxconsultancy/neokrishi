@@ -502,13 +502,28 @@ section{
   z-index:1;
 }
 @media (max-width:860px){
+  .stepper{grid-template-columns:1fr;gap:0;}
+  .stepper-line{display:none;}
+  .stepper-line-fill{display:none;}
   .step{
-    display:grid;
-    grid-template-columns:56px 1fr;
-    gap:20px;
-    padding-bottom:44px;
+    display:block;
+    padding:24px;
+    margin-bottom:0;
+    background:var(--bg-card);
+    border-left:4px solid var(--green-mid);
+    border-radius:0;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--border-subtle);
   }
-  .step:last-child{padding-bottom:0;}
+  .step:first-child{border-radius:12px 12px 0 0;}
+  .step:last-child{border-radius:0 0 12px 12px;border-bottom:none;}
+  .step-node{
+    display:none;
+  }
+  .step h4{
+    margin-bottom:10px;
+    margin-top:0;
+  }
 }
 .step-node{
   width:56px;height:56px;
@@ -592,11 +607,25 @@ section{
 .tpoint .label{font-size:14px;font-weight:600;}
 .tpoint .desc{font-size:13px;color:var(--text-secondary);margin-top:5px;}
 @media (max-width:768px){
-  .timeline14-track{grid-template-columns:1fr;gap:28px;}
-  .timeline14-line{top:0;bottom:0;left:9px;right:auto;width:2px;height:auto;}
-  .timeline14-line-fill{width:auto;height:0%;transition:height 1.1s cubic-bezier(.22,.9,.34,1);}
-  .tpoint{display:grid;grid-template-columns:20px 1fr;gap:16px;text-align:left;}
-  .tpoint-dot{margin:2px 0 0;}
+  .timeline14-track{grid-template-columns:1fr;gap:0;}
+  .timeline14-line{display:none;}
+  .timeline14-line-fill{display:none;}
+  .tpoint{
+    display:block;
+    padding:24px;
+    margin-bottom:0;
+    background:var(--bg-card);
+    border-left:4px solid var(--gold);
+    border-radius:0;
+    text-align:left;
+    border-bottom:1px solid var(--border-subtle);
+  }
+  .tpoint:first-child{border-radius:12px 12px 0 0;}
+  .tpoint:last-child{border-radius:0 0 12px 12px;border-bottom:none;}
+  .tpoint-dot{display:none;}
+  .tpoint .day{display:inline-block;margin-right:12px;margin-bottom:0;}
+  .tpoint .label{display:inline;font-weight:700;}
+  .tpoint .desc{margin-top:8px;display:block;}
 }
 .timeline-caption{
   margin-top:36px;
@@ -704,6 +733,82 @@ section{
   max-width:640px;
   margin-left:auto;margin-right:auto;
 }
+
+/* ============================================================
+   PRODUCTS PORTFOLIO
+   ============================================================ */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+.product-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-subtle);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--card-elevation);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(19,41,26,0.15);
+}
+[data-theme="dark"] .product-card:hover{
+  box-shadow:0 0 0 1px rgba(140,198,63,0.25),0 12px 32px rgba(0,0,0,0.35);
+}
+.product-img{
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--bg-secondary);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-secondary);
+  font-size:13px;
+  text-align:center;
+  padding:20px;
+  overflow:hidden;
+}
+.product-img img{width:100%;height:100%;object-fit:cover;}
+.product-content{padding:24px;}
+.product-badge{
+  display:inline-block;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+.product-card h4{font-size:18px;margin-bottom:10px;}
+.product-desc{
+  font-size:14px;
+  color:var(--text-secondary);
+  margin-bottom:16px;
+  min-height:42px;
+}
+.product-specs{
+  display:flex;flex-direction:column;gap:10px;
+  padding:12px 0;
+  border-top:1px solid var(--border-subtle);
+  border-bottom:1px solid var(--border-subtle);
+  margin-bottom:16px;
+  font-size:13px;
+}
+.product-specs .spec{display:flex;justify-content:space-between;}
+.product-specs .label{color:var(--text-secondary);}
+.product-specs .value{font-weight:700;color:var(--text-primary);}
+.product-price-block{
+  display:flex;gap:12px;align-items:baseline;margin-bottom:16px;
+}
+.product-mrp{font-size:12px;color:var(--text-secondary);text-decoration:line-through;}
+.product-price{
+  font-family:var(--font-display);
+  font-size:24px;
+  font-weight:800;
+  color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.product-cta{display:block;text-align:center;}
 
 /* ============================================================
    ROI CALCULATOR
@@ -1135,9 +1240,9 @@ section{
     <div class="nav-links">
       <a href="#problem-solution">Problem/Solution</a>
       <a href="#how-it-works">How It Works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#calculator">Calculator</a>
-      <a href="#faq">FAQ</a>
+      <a href="#products">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="guide.html">Vermicompost Guide</a>
     </div>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
@@ -1153,9 +1258,9 @@ section{
   <div class="nav-mobile-panel" id="navMobilePanel">
     <a href="#problem-solution">Problem/Solution</a>
     <a href="#how-it-works">How It Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#faq">FAQ</a>
+    <a href="#products">Products</a>
+    <a href="blog.html">Blog</a>
+    <a href="guide.html">Vermicompost Guide</a>
     <a href="#apply" class="btn btn-primary" style="margin-top:12px;justify-content:center;">Apply Now</a>
   </div>
 </nav>
@@ -1353,6 +1458,133 @@ section{
 </section>
 
 <!-- ============================================================
+     PRODUCTS PORTFOLIO
+     ============================================================ -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Our Product Range</p>
+      <h2>From Waste to Soil: A Complete Portfolio of Biological Inputs</h2>
+      <p class="sub">Each product in the Neo Krishi range serves a specific purpose in the soil health ecosystem. Together, they form a complete approach to sustainable agriculture.</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- PRODUCT 1: City Compost -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://via.placeholder.com/400x400?text=City+Compost" alt="City Compost product image" loading="lazy">
+        </div>
+        <div class="product-content">
+          <span class="product-badge">Standard Value</span>
+          <h4>City Compost</h4>
+          <p class="product-desc">Municipal organic waste converted into a reliable, economical soil conditioner for large-scale applications.</p>
+          <div class="product-specs">
+            <div class="spec">
+              <span class="label">Min Order</span>
+              <span class="value">50 kg</span>
+            </div>
+            <div class="spec">
+              <span class="label">Application</span>
+              <span class="value">Agriculture, Landscaping, Parks</span>
+            </div>
+          </div>
+          <div class="product-price-block">
+            <span class="product-mrp">₹500</span>
+            <span class="product-price">₹325</span>
+          </div>
+          <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" class="btn btn-primary btn-block product-cta" target="_blank">Learn More</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2: Neo Compost -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://via.placeholder.com/400x400?text=Neo+Compost" alt="Neo Compost product image" loading="lazy">
+        </div>
+        <div class="product-content">
+          <span class="product-badge">Premium</span>
+          <h4>Neo Compost</h4>
+          <p class="product-desc">Neem-enriched vermicompost combining nutrient-rich worm castings with the proven benefits of neem.</p>
+          <div class="product-specs">
+            <div class="spec">
+              <span class="label">Min Order</span>
+              <span class="value">50 kg</span>
+            </div>
+            <div class="spec">
+              <span class="label">Price/Unit</span>
+              <span class="value">₹12/kg</span>
+            </div>
+          </div>
+          <div class="product-price-block">
+            <span class="product-mrp">₹900</span>
+            <span class="product-price">₹600</span>
+          </div>
+          <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" class="btn btn-primary btn-block product-cta" target="_blank">Learn More</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3: Neo Gold -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://via.placeholder.com/400x400?text=Neo+Gold" alt="Neo Gold product image" loading="lazy">
+        </div>
+        <div class="product-content">
+          <span class="product-badge">Flagship Premium</span>
+          <h4>Neo Gold</h4>
+          <p class="product-desc">Premium enriched vermicompost blended with activated biochar and in-house biofertilizers for superior soil regeneration.</p>
+          <div class="product-specs">
+            <div class="spec">
+              <span class="label">Min Order</span>
+              <span class="value">300 kg</span>
+            </div>
+            <div class="spec">
+              <span class="label">Composition</span>
+              <span class="value">75% Vermicompost + 25% Biochar</span>
+            </div>
+          </div>
+          <div class="product-price-block">
+            <span class="product-mrp">₹9,000</span>
+            <span class="product-price">₹6,000</span>
+          </div>
+          <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" class="btn btn-primary btn-block product-cta" target="_blank">Learn More</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 4: Neo Boost -->
+      <div class="product-card reveal">
+        <div class="product-img">
+          <img src="https://via.placeholder.com/400x400?text=Neo+Boost" alt="Neo Boost product image" loading="lazy">
+        </div>
+        <div class="product-content">
+          <span class="product-badge">Liquid Input</span>
+          <h4>Neo Boost</h4>
+          <p class="product-desc">Premium vermiwash — a nutrient-rich biological liquid input for foliar and soil applications across all crops.</p>
+          <div class="product-specs">
+            <div class="spec">
+              <span class="label">Min Order</span>
+              <span class="value">50 litres</span>
+            </div>
+            <div class="spec">
+              <span class="label">Price/Unit</span>
+              <span class="value">₹15/L</span>
+            </div>
+          </div>
+          <div class="product-price-block">
+            <span class="product-mrp">₹2,500</span>
+            <span class="product-price">₹750</span>
+          </div>
+          <a href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID" class="btn btn-primary btn-block product-cta" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:48px;color:var(--text-secondary);font-size:14px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <strong>Shipping:</strong> Customer bears shipping costs. All products available for bulk order. For custom quantities or B2B partnerships, contact our team via the application form below.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
      ROI CALCULATOR
      ============================================================ -->
 <section id="calculator">
@@ -1467,13 +1699,13 @@ section{
     <div class="proof-placeholder reveal">
       <span class="pp-label">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
-        Placeholder — real partner data required before launch
+        Real Impact from Neo Krishi Partners
       </span>
-      <p class="pp-body">This block is reserved for partner testimonials, photos, and impact statistics — for example, the number of active vermipreneurs, tons of waste diverted from landfill, or locations currently live. Insert real, verified numbers and quotes from actual Neo Krishi partners before this site goes public. A website with invented testimonials or stats is a liability, not an asset.</p>
+      <p class="pp-body">Our growing network of vermipreneurs is creating tangible change in soil health, waste management, and sustainable agriculture across India.</p>
       <div class="proof-stats-row">
-        <div class="proof-stat"><div class="ph-num">—</div><div class="ph-lbl">Active Vermipreneurs</div></div>
-        <div class="proof-stat"><div class="ph-num">—</div><div class="ph-lbl">Tons Diverted From Landfill</div></div>
-        <div class="proof-stat"><div class="ph-num">—</div><div class="ph-lbl">Locations Live</div></div>
+        <div class="proof-stat"><div class="ph-num">300+</div><div class="ph-lbl">Active Vermipreneurs</div></div>
+        <div class="proof-stat"><div class="ph-num">20,000+</div><div class="ph-lbl">Tons Diverted from Landfill</div></div>
+        <div class="proof-stat"><div class="ph-num">10+</div><div class="ph-lbl">Locations Live</div></div>
       </div>
     </div>
 
@@ -1521,67 +1753,9 @@ section{
       <p class="sub">Tell us about your space. Our team will confirm your numbers and walk you through setup — no cost, no obligation to apply.</p>
     </div>
 
-    <div class="form-panel reveal">
-      <div class="form-body" id="formBody">
-        <h3>Apply for Your Site Assessment</h3>
-        <form id="applyForm" novalidate>
-          <div class="field-row" id="row-name">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
-            <p class="field-error">Please enter your full name.</p>
-          </div>
-          <div class="field-row" id="row-phone">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="10-digit mobile number" required>
-            <p class="field-error">Please enter a valid 10-digit phone number.</p>
-          </div>
-          <div class="field-row" id="row-city">
-            <label for="city">City / Location</label>
-            <input type="text" id="city" name="city" autocomplete="address-level2" required>
-            <p class="field-error">Please enter your city or location.</p>
-          </div>
-          <div class="field-row" id="row-area">
-            <label for="area">Available Area (Sq. Ft.)</label>
-            <input type="text" inputmode="numeric" id="area" name="area" placeholder="e.g. 900" required>
-            <p class="field-error">Please enter a numeric value in square feet.</p>
-          </div>
-          <div class="field-row" id="row-tier">
-            <label>Target Tier</label>
-            <div class="tier-options">
-              <div class="tier-opt">
-                <input type="radio" name="tier" id="tier10" value="10-Bed Starter">
-                <label for="tier10">10-Bed Starter</label>
-              </div>
-              <div class="tier-opt">
-                <input type="radio" name="tier" id="tier50" value="50-Bed Commercial">
-                <label for="tier50">50-Bed Commercial</label>
-              </div>
-              <div class="tier-opt">
-                <input type="radio" name="tier" id="tier100" value="100-Bed Enterprise">
-                <label for="tier100">100-Bed Enterprise</label>
-              </div>
-              <div class="tier-opt">
-                <input type="radio" name="tier" id="tierUnsure" value="Not Sure Yet" checked>
-                <label for="tierUnsure">Not Sure Yet (Help Me Decide)</label>
-              </div>
-            </div>
-            <p class="field-error">Please select a target tier.</p>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Get My Free Site Assessment →</button>
-          <p class="form-trust">No cost to apply. Our team responds within 24 hours. Your information is never sold or shared.</p>
-        </form>
-      </div>
-
-      <div class="form-success" id="formSuccess">
-        <div class="check-wrap">
-          <svg viewBox="0 0 36 36" fill="none">
-            <circle class="check-circle" cx="18" cy="18" r="16" stroke="white" stroke-width="2" stroke-opacity="0.4"/>
-            <path class="check-mark" d="M10 18l5.5 5.5L26 13" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3>You're In</h3>
-        <p>A Neo Krishi team member will reach out within 24 hours to schedule your site audit — the first step of your 14-day setup.</p>
-      </div>
+    <div class="form-panel reveal" style="text-align:center;padding:60px 40px;">
+      <a href="https://forms.google.com/YOUR_FORM_ID" class="btn btn-primary" style="font-size:16px;padding:16px 32px;" target="_blank">Get My Free Site Assessment →</a>
+      <p class="form-trust" style="margin-top:20px;">No cost to apply. Our team responds within 24 hours. Your information is never sold or shared.</p>
     </div>
   </div>
 </section>
@@ -1591,6 +1765,10 @@ section{
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <span class="word"><span class="neo" style="background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">Neo</span> <span style="color:var(--text-primary);">Krishi</span></span>
+    <div style="display:flex;gap:24px;font-size:14px;color:var(--text-secondary);flex-wrap:wrap;">
+      <a href="mailto:neokrishipvt@gmail.com" style="color:var(--text-secondary);">neokrishipvt@gmail.com</a>
+      <a href="tel:+919102635407" style="color:var(--text-secondary);">+91 9102635407</a>
+    </div>
     <p class="footer-copy">© 2026 Neo Krishi. Unlocking Soil Wealth.</p>
   </div>
 </footer>
@@ -1938,62 +2116,6 @@ section{
     });
   });
 
-  /* ---------------------------------------------------------
-     APPLICATION FORM — client-side validation + success state
-     --------------------------------------------------------- */
-  var form = document.getElementById('applyForm');
-  var formBody = document.getElementById('formBody');
-  var formSuccess = document.getElementById('formSuccess');
-
-  function setRowError(rowId, hasError){
-    var row = document.getElementById(rowId);
-    row.classList.toggle('has-error', hasError);
-    var input = row.querySelector('input[type=text],input[type=tel]');
-    if(input){ input.classList.toggle('error', hasError); }
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var valid = true;
-
-    var name = document.getElementById('fullName').value.trim();
-    if(name.length < 2){ setRowError('row-name', true); valid = false; } else { setRowError('row-name', false); }
-
-    var phone = document.getElementById('phone').value.trim().replace(/\D/g,'');
-    var phoneOk = /^[6-9]\d{9}$/.test(phone);
-    if(!phoneOk){ setRowError('row-phone', true); valid = false; } else { setRowError('row-phone', false); }
-
-    var city = document.getElementById('city').value.trim();
-    if(city.length < 2){ setRowError('row-city', true); valid = false; } else { setRowError('row-city', false); }
-
-    var areaRaw = document.getElementById('area').value.trim();
-    var areaOk = /^[0-9]+$/.test(areaRaw) && parseInt(areaRaw,10) > 0;
-    if(!areaOk){ setRowError('row-area', true); valid = false; } else { setRowError('row-area', false); }
-
-    var tierChecked = form.querySelector('input[name=tier]:checked');
-    if(!tierChecked){ setRowError('row-tier', true); valid = false; } else { setRowError('row-tier', false); }
-
-    if(!valid){
-      var firstError = form.querySelector('.has-error');
-      if(firstError){ firstError.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'center'}); }
-      return;
-    }
-
-    // Structured payload — wire a real submit handler / API call here.
-    var payload = {
-      fullName: name,
-      phone: phone,
-      city: city,
-      areaSqFt: parseInt(areaRaw,10),
-      targetTier: tierChecked.value,
-      submittedAt: new Date().toISOString()
-    };
-    // Example: fetch('/api/apply', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-    console.log('Neo Krishi application payload (ready for backend wiring):', payload);
-
-    formBody.classList.add('hide');
-    formSuccess.classList.add('show');
-  });
 
 })();
 </script>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Krishi Vermicomposting Guide — हिंदी & English</title>
+<meta name="description" content="Complete guide to vermicomposting: what it is, why it matters, how to start, and how Neo Krishi supports vermipreneurs. Available in Hindi and English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg-primary:#FFFFFF;
+  --bg-secondary:#F5F3EC;
+  --bg-card:#FFFFFF;
+  --text-primary:#13291A;
+  --text-secondary:#4B5D4F;
+  --green-deep:#1B4D2E;
+  --green-mid:#2E7D32;
+  --green-accent:#6FCF52;
+  --gold:#B8875A;
+  --border-subtle:#E3E0D4;
+  --card-elevation:0 4px 24px rgba(19,41,26,0.08);
+  --nav-bg:rgba(255,255,255,0.72);
+  --gradient-brand:linear-gradient(135deg,var(--green-accent),var(--green-mid),var(--green-deep));
+  --focus-ring:0 0 0 3px rgba(46,125,50,0.35);
+  --font-display:'Sora','Manrope',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+
+[data-theme="dark"]{
+  --bg-primary:#0B1A10;
+  --bg-secondary:#102415;
+  --bg-card:#132A18;
+  --text-primary:#E7F0DE;
+  --text-secondary:#A8C2A0;
+  --green-deep:#1F5C1A;
+  --green-mid:#4C9A2A;
+  --green-accent:#8CC63F;
+  --gold:#C9995F;
+  --border-subtle:#1E3624;
+  --card-elevation:0 0 0 1px rgba(140,198,63,0.14);
+  --nav-bg:rgba(11,26,16,0.72);
+  --focus-ring:0 0 0 3px rgba(140,198,63,0.4);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.7;
+  transition:background-color .35s ease,color .35s ease;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:var(--font-display);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin:0;
+  color:var(--text-primary);
+}
+
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+ul,ol{margin:0;padding-left:24px;}
+li{margin-bottom:10px;}
+img{max-width:100%;display:block;}
+
+:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:6px;}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* NAV */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background-color .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+}
+.nav.scrolled{
+  background:var(--nav-bg);
+  backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);
+  border-bottom:1px solid var(--border-subtle);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:76px;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+  flex:none;
+}
+.logo .word{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:21px;
+  letter-spacing:-0.01em;
+}
+.logo .word .neo{
+  background:var(--gradient-brand);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.logo .word .krishi{color:var(--text-primary);}
+.logo .tag{
+  font-size:9.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-top:3px;
+  font-weight:600;
+}
+.nav-right{display:flex;align-items:center;gap:14px;flex:none;}
+.theme-toggle{
+  width:44px;height:44px;
+  border-radius:50%;
+  border:1px solid var(--border-subtle);
+  background:var(--bg-card);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-primary);
+  transition:border-color .2s ease;
+  flex:none;
+}
+.theme-toggle:hover{border-color:var(--green-mid);}
+.theme-toggle svg{width:19px;height:19px;}
+
+/* PAGE HEADER */
+.page-header{
+  padding:60px 0 40px;
+  text-align:center;
+}
+.page-header h1{
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:20px;
+}
+.page-header .sub{
+  font-size:15px;
+  color:var(--text-secondary);
+  margin-bottom:24px;
+}
+
+.lang-toggle{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-bottom:32px;
+}
+.lang-btn{
+  padding:10px 18px;
+  border-radius:8px;
+  border:1px solid var(--border-subtle);
+  background:var(--bg-card);
+  color:var(--text-primary);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:0.05em;
+  transition:all .2s ease;
+}
+.lang-btn.active{
+  background:var(--gradient-brand);
+  color:#F5FFEF;
+  border-color:transparent;
+}
+.lang-btn:hover{border-color:var(--green-mid);}
+
+/* CONTENT */
+.guide-section{
+  margin-bottom:56px;
+}
+.guide-section h2{
+  font-size:28px;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--border-subtle);
+}
+.guide-section h3{
+  font-size:20px;
+  margin-top:28px;
+  margin-bottom:14px;
+}
+.guide-section p{
+  margin-bottom:16px;
+  color:var(--text-secondary);
+}
+.guide-section ul li,
+.guide-section ol li{
+  color:var(--text-secondary);
+  margin-bottom:10px;
+}
+.guide-section strong{
+  color:var(--text-primary);
+  font-weight:700;
+}
+
+/* IMAGE SPACE */
+.image-placeholder{
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--bg-secondary);
+  border:2px dashed var(--border-subtle);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:32px 0;
+  position:relative;
+  color:var(--text-secondary);
+  font-size:13px;
+  text-align:center;
+  padding:20px;
+  overflow:hidden;
+}
+.image-placeholder img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+.image-placeholder-text{
+  position:relative;
+  z-index:1;
+  background:var(--bg-secondary);
+  padding:12px 16px;
+  border-radius:8px;
+}
+
+.quote-box{
+  background:var(--bg-secondary);
+  border-left:4px solid var(--gold);
+  padding:24px;
+  border-radius:8px;
+  margin:28px 0;
+  font-size:15.5px;
+  font-style:italic;
+  color:var(--text-primary);
+}
+
+.info-box{
+  background:var(--bg-secondary);
+  border:1px solid var(--border-subtle);
+  border-radius:12px;
+  padding:22px;
+  margin:24px 0;
+}
+.info-box strong{display:block;margin-bottom:8px;}
+
+.table-wrap{
+  overflow-x:auto;
+  margin:28px 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+table th{
+  background:var(--bg-secondary);
+  color:var(--text-primary);
+  padding:12px;
+  text-align:left;
+  font-weight:700;
+  border-bottom:2px solid var(--border-subtle);
+}
+table td{
+  padding:12px;
+  border-bottom:1px solid var(--border-subtle);
+  color:var(--text-secondary);
+}
+table tr:last-child td{border-bottom:none;}
+
+.lang-hidden{display:none;}
+
+/* FOOTER */
+.site-footer{
+  border-top:1px solid var(--border-subtle);
+  padding:36px 0;
+  margin-top:80px;
+}
+.footer-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.footer-inner .word{font-size:15px;}
+.footer-copy{font-size:13px;color:var(--text-secondary);}
+
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  color:var(--green-mid);
+  margin-bottom:24px;
+  transition:gap .2s ease;
+}
+[data-theme="dark"] .back-link{color:var(--green-accent);}
+.back-link:hover{gap:12px;}
+.back-link svg{width:16px;height:16px;}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo" aria-label="Neo Krishi home">
+      <span class="word"><span class="neo">Neo</span> <span class="krishi">Krishi</span></span>
+      <span class="tag">Unlocking Soil Wealth</span>
+    </a>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
+        <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<div class="wrap">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    Back to Home
+  </a>
+
+  <div class="page-header">
+    <h1>Neo Krishi Vermicomposting Guide</h1>
+    <p class="sub">Everything you need to know about vermicomposting, from basics to business setup. Available in Hindi and English.</p>
+    
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="english" type="button">English</button>
+      <button class="lang-btn" data-lang="hindi" type="button">हिंदी</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ENGLISH CONTENT
+       ============================================================ -->
+  <div id="english-content">
+
+    <div class="guide-section">
+      <h2>What is Vermicompost and Why It Matters</h2>
+      
+      <p><strong>Vermicompost</strong>, commonly known as worm compost or worm castings, is a natural process in which suitable organic material is gradually broken down with the help of earthworms and microorganisms.</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — Vermicomposting beds in action</div>
+      </div>
+
+      <h3>The Direct Benefit</h3>
+      <p>Vegetable scraps, fruit waste, and other biodegradable organic material no longer need to be discarded. Instead, they return to the soil as nutrient-rich compost.</p>
+
+      <h3>Soil Needs More Than Just Nutrients</h3>
+      <p>Healthy soil contains not only essential minerals, but also organic matter, microorganisms, water, and air. Farming continuously extracts from the soil, which is why maintaining organic matter and natural activity is critical.</p>
+      
+      <p>The question isn't just "how much fertilizer should we add?" — it's also "how is the soil's health, and how much organic matter is being returned?"</p>
+
+      <h3>Why Vermicompost Demand Is Growing</h3>
+      <ul>
+        <li>Increasing need for biological inputs in farming and horticulture</li>
+        <li>Growing use in nurseries, floriculture, and landscaping</li>
+        <li>Rising home and terrace gardening</li>
+        <li>Need to convert organic waste into useful material</li>
+        <li>Requirement to return organic matter to agricultural soil</li>
+        <li>Potential for small-scale agricultural business with limited space</li>
+      </ul>
+
+      <div class="quote-box">
+        "Making compost and selling compost are two different things. It requires selecting quality materials, managing moisture and temperature, timely harvesting, sieving, and meeting buyer quality standards."
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>How to Start Vermicomposting at Home or at Scale</h2>
+
+      <h3>Four Things to Decide Before Starting</h3>
+      <ul>
+        <li><strong>Space</strong> — Location with water access and drainage</li>
+        <li><strong>Water</strong> — Reliable water supply, but not waterlogged</li>
+        <li><strong>Organic material</strong> — Access to clean biodegradable waste</li>
+        <li><strong>Regular oversight</strong> — Consistent daily care</li>
+      </ul>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — Site selection and preparation</div>
+      </div>
+
+      <h3>Step-by-Step Setup Process</h3>
+      
+      <h4>1. Choose Your Location</h4>
+      <p>Look for water access, shade, proper drainage, and working space. For larger operations, plan for harvesting and storage areas.</p>
+
+      <h4>2. Prepare the Beds</h4>
+      <p>Set up appropriate beds or structures for vermicomposting. For commercial units, bed size and shade management should be pre-planned.</p>
+
+      <h4>3. Introduce Earthworms</h4>
+      <p>Add suitable earthworms (Eisenia fetida) to prepared organic material. Do not introduce worms directly into fresh or very hot material.</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — Earthworm inoculation and bed preparation</div>
+      </div>
+
+      <h4>4. Prepare Organic Feedstock</h4>
+      <p>Suitable materials include vegetable scraps, fruit waste, and appropriate agricultural residues. Large or tough materials may need pre-treatment.</p>
+
+      <h4>5. Maintain Moisture</h4>
+      <p>Beds should not be completely dry or waterlogged. Water as needed and monitor moisture levels regularly.</p>
+
+      <h4>6. Add Material Gradually</h4>
+      <p>Do not overfeed. Monitor for excess moisture, odor problems, or abnormal worm behavior.</p>
+
+      <h4>7. Regular Monitoring</h4>
+      <p>Watch moisture, temperature, odor, and worm condition. Initial weeks require extra attention.</p>
+
+      <h4>8. Allow Time for Decomposition</h4>
+      <p>Earthworms and microorganisms gradually transform material into compost. Quality compost is dark and crumbly.</p>
+
+      <h4>9. Screen and Clean</h4>
+      <p>For commercial sale, remove plastic, stones, and large pieces. Current Neo Krishi standards require sieved, clean compost with appropriate moisture content.</p>
+
+      <h4>10. Storage and Handover</h4>
+      <p>Store finished compost in a clean space. If you have a purchase agreement, submit material when quality standards are met.</p>
+
+      <h3>Daily Time Commitment</h3>
+      <p>Standard operations typically require about <strong>15–20 minutes per day</strong> of regular maintenance. Actual time varies with season, number of beds, and operational approach.</p>
+
+      <div class="info-box">
+        <strong>The Most Critical Factor: Quality</strong>
+        In commercial operations, producing consistent quality compost is essential. Establish habits from day one: clean materials, proper moisture control, sieving, and timely harvesting.
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>How Neo Krishi Supports Vermipreneurs</h2>
+
+      <h3>The Neo Krishi Model</h3>
+      <p>If you have space but lack vermicomposting experience, you don't have to start alone. Neo Krishi's current model supports you from installation through quality production and guaranteed purchase.</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — Neo Krishi team conducting site assessment</div>
+      </div>
+
+      <h3>Site Audit and Unit Selection</h3>
+      <p>We first assess your space. Based on available area, water access, shade, and your goals, we recommend the right unit size for your situation.</p>
+
+      <h3>Complete Installation</h3>
+      <p>Our current model includes engineered vermicompost beds, shade structures, Eisenia fetida worms, and starter material — all installed and ready to go.</p>
+
+      <h3>Hands-On Training</h3>
+      <p>Learn material preparation, misting line setup, enzyme application, and moisture management until these skills become second nature. We provide practical, not theoretical, training.</p>
+
+      <h3>Active Support for One Year</h3>
+      <p>We stay with you through the first year, not just for installation but for ongoing hands-on guidance until you're confident managing the entire production cycle.</p>
+
+      <h3>Guaranteed Purchase Agreement</h3>
+      <p>The current Neo Krishi model includes a formal buyback agreement with fixed floor prices:</p>
+      <ul>
+        <li>Raw vermicompost: ₹3.50/kg (sieved, debris-free, ≤30% moisture)</li>
+        <li>Raw vermiwash: ₹15.00/litre (filtered, clear liquid)</li>
+      </ul>
+
+      <h3>What Happens to Your Output</h3>
+      <p>Purchased raw material is enriched in our lab with biological cultures and biofertilizers, then sold as retail products like Neo Gold and Neo Vermiboost.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Unit Size</th>
+              <th>Space Required</th>
+              <th>Setup Investment</th>
+              <th>Est. Annual Gross</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10-Bed Starter</td>
+              <td>600–900 sq ft</td>
+              <td>₹72,000</td>
+              <td>~₹1.22 lakh</td>
+            </tr>
+            <tr>
+              <td>50-Bed Commercial</td>
+              <td>3,500–4,500 sq ft</td>
+              <td>₹2.75 lakh</td>
+              <td>~₹6.10 lakh</td>
+            </tr>
+            <tr>
+              <td>100-Bed Enterprise</td>
+              <td>7,500–9,000 sq ft</td>
+              <td>₹4.85 lakh</td>
+              <td>~₹12.20 lakh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><em>Note: These are website estimates, not guarantees. Actual production and profit depend on location, climate, water access, labor, quality, and operational management.</em></p>
+
+      <h3>Who Is This For?</h3>
+      <ul>
+        <li>Farmers and landowners</li>
+        <li>People with unused or underutilized space</li>
+        <li>Young entrepreneurs starting agricultural ventures</li>
+        <li>Retirees looking for meaningful work</li>
+        <li>Agricultural entrepreneurs</li>
+        <li>FPOs and institutions</li>
+        <li>Nursery and horticulture businesses</li>
+      </ul>
+
+      <h3>How to Get Started</h3>
+      <p>If you have approximately 600 square feet or more and want to understand vermicomposting as a business, start by sharing information about your space, water access, and available area. We'll discuss the right unit size and investment level for your situation.</p>
+
+      <div class="quote-box">
+        "Understand your space and needs first. Then choose the right unit."
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Can I make vermicompost at home?</h3>
+      <p>Yes, you can make it on a small scale. Commercial operations require different infrastructure and quality control systems.</p>
+
+      <h3>How long does compost take to form?</h3>
+      <p>Time depends on material, season, moisture, temperature, and care. It's not the same everywhere.</p>
+
+      <h3>Is this very time-consuming?</h3>
+      <p>Regular care is essential. Standard operations typically require about 15–20 minutes per day of maintenance.</p>
+
+      <h3>Do I have to find buyers myself?</h3>
+      <p>Neo Krishi's current model includes a purchase agreement for quality-meeting production.</p>
+
+      <h3>Is income guaranteed?</h3>
+      <p>No. Website figures are estimates. Actual results depend on unit condition, operational management, climate, and other factors.</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       HINDI CONTENT
+       ============================================================ -->
+  <div id="hindi-content" class="lang-hidden">
+
+    <div class="guide-section">
+      <h2>वर्मी कम्पोस्ट क्या है और इसकी जरूरत क्यों है?</h2>
+      
+      <p><strong>वर्मी कम्पोस्ट</strong>, जिसे आम बोलचाल में केंचुआ खाद भी कहते हैं, जैविक कचरे को केंचुओं और सूक्ष्मजीवों की मदद से खाद में बदलने की एक प्राकृतिक प्रक्रिया है।</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — वर्मी कम्पोस्टिंग बेड</div>
+      </div>
+
+      <h3>सीधा फायदा</h3>
+      <p>सब्जियों का कचरा, फल-सब्जियों के अवशेष और दूसरी सड़ने वाली जैविक सामग्री को फेंकने की जरूरत नहीं। इसे वापस मिट्टी में लाया जा सकता है।</p>
+
+      <h3>मिट्टी को केवल खाद नहीं, जैविक पदार्थ भी चाहिए</h3>
+      <p>स्वस्थ मिट्टी में खनिजों के साथ-साथ जैविक पदार्थ, सूक्ष्मजीव, पानी और हवा भी होते हैं। खेती लगातार मिट्टी से कुछ न कुछ लेती है। इसलिए मिट्टी में जैविक पदार्थ और उसकी प्राकृतिक गतिविधि को बनाए रखना जरूरी है।</p>
+      
+      <p>सवाल केवल 'कितनी खाद डालें' नहीं है — यह भी देखना जरूरी है कि मिट्टी की हालत कैसी है और उसमें जैविक पदार्थ कितना लौट रहा है।</p>
+
+      <h3>वर्मी कम्पोस्ट का काम बढ़ने का कारण</h3>
+      <ul>
+        <li>खेती और बागवानी में जैविक खाद की बढ़ती जरूरत</li>
+        <li>पौधशालाओं, फूल-पौधों और बागवानी में बढ़ता उपयोग</li>
+        <li>घर और छत पर बागवानी का बढ़ना</li>
+        <li>जैविक कचरे को उपयोगी बनाने की जरूरत</li>
+        <li>मिट्टी में जैविक पदार्थ वापस पहुंचाने की जरूरत</li>
+        <li>कम जगह से शुरू किए जा सकने वाले कृषि-व्यवसाय की संभावना</li>
+      </ul>
+
+      <div class="quote-box">
+        "खाद बनाना और खाद बेचना अलग बातें हैं। इसमें उचित सामग्री चुनना, नमी और तापमान संभालना, समय पर निकालना, छानना और गुणवत्ता की जरूरतें पूरी करनी पड़ती हैं।"
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>घर पर या व्यावसायिक स्तर पर वर्मी कम्पोस्ट कैसे शुरू करें</h2>
+
+      <h3>शुरू करने से पहले चार बातें तय करें</h3>
+      <ul>
+        <li><strong>जगह</strong> — पानी की सुविधा और पानी की निकासी वाली जगह</li>
+        <li><strong>पानी</strong> — पानी की विश्वसनीय व्यवस्था, लेकिन जल भराव न हो</li>
+        <li><strong>जैविक सामग्री</strong> — साफ जैविक कचरे का स्रोत</li>
+        <li><strong>नियमित निगरानी</strong> — रोज की देखभाल करने वाला व्यक्ति</li>
+      </ul>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — जगह का चुनाव और तैयारी</div>
+      </div>
+
+      <h3>चरण-दर-चरण सेटअप प्रक्रिया</h3>
+      
+      <h4>1. जगह चुनें</h4>
+      <p>पानी की सुविधा, छाया, पानी की निकासी और काम करने की जगह देखें। बड़े ऑपरेशन के लिए खाद निकालने और रखने की जगह भी रखें।</p>
+
+      <h4>2. बेड तैयार करें</h4>
+      <p>वर्मी कम्पोस्टिंग के लिए उचित बेड या ढांचा तैयार करें। व्यावसायिक इकाई में बेड का आकार और छाया की व्यवस्था पहले से तय करनी चाहिए।</p>
+
+      <h4>3. केंचुए डालें</h4>
+      <p>उपयुक्त केंचुए (Eisenia fetida) को तैयार जैविक सामग्री में डालें। ताजा या बहुत गर्म सामग्री में सीधे केंचुए न डालें।</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — केंचुआ डालना और बेड की तैयारी</div>
+      </div>
+
+      <h4>4. जैविक सामग्री तैयार करें</h4>
+      <p>उपयुक्त सामग्री में सब्जियों के अवशेष, फल-सब्जियों का कचरा और उचित कृषि अवशेष शामिल हैं। बड़े या कठोर पदार्थों को पहले तैयार करना पड़ सकता है।</p>
+
+      <h4>5. नमी बनाए रखें</h4>
+      <p>बेड बिल्कुल सूखा या पानी भरा नहीं होना चाहिए। आवश्यकतानुसार पानी दें और नमी की स्थिति देखते रहें।</p>
+
+      <h4>6. धीरे-धीरे सामग्री डालें</h4>
+      <p>एक बार में अत्यधिक सामग्री न डालें। बहुत अधिक नमी, बदबू या असामान्य केंचुआ व्यवहार पर ध्यान दें।</p>
+
+      <h4>7. नियमित निगरानी</h4>
+      <p>नमी, तापमान, बदबू और केंचुओं की स्थिति देखें। शुरुआती सप्ताहों में विशेष ध्यान जरूरी है।</p>
+
+      <h4>8. विघटन के लिए समय दें</h4>
+      <p>केंचुए और सूक्ष्मजीव धीरे-धीरे सामग्री को खाद में बदलते हैं। तैयार खाद गहरे रंग की और भुरभुरी होती है।</p>
+
+      <h4>9. छानें और साफ करें</h4>
+      <p>व्यावसायिक बिक्री के लिए प्लास्टिक, पत्थर और बड़े टुकड़े अलग करें। Neo Krishi की वर्तमान खरीद व्यवस्था में छनी हुई, साफ खाद और उचित नमी सीमा जरूरी है।</p>
+
+      <h4>10. संग्रह और उठाव</h4>
+      <p>तैयार खाद को साफ जगह पर रखें। यदि खरीद समझौता है, तो गुणवत्ता पूरी होने पर समझौते के अनुसार माल लिया जाता है।</p>
+
+      <h3>रोज कितना समय लगेगा</h3>
+      <p>सामान्य व्यवस्था में लगभग <strong>15–20 मिनट प्रतिदिन</strong> की देखभाल चाहिए। वास्तविक समय मौसम, बेड की संख्या और संचालन के तरीके पर निर्भर करता है।</p>
+
+      <div class="info-box">
+        <strong>सबसे जरूरी बात: गुणवत्ता</strong>
+        व्यावसायिक काम में हर बार लगभग एक जैसी गुणवत्ता की खाद निकलना जरूरी है। शुरू से ही अच्छी आदतें बनाएं: साफ सामग्री, सही नमी, छंटाई और सही समय पर खाद निकालना।
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>Neo Krishi आपके साथ कैसे काम करता है</h2>
+
+      <h3>Neo Krishi का मॉडल</h3>
+      <p>अगर आपके पास जगह है लेकिन वर्मी कम्पोस्टिंग का अनुभव नहीं है, तो अकेले शुरू करने की जरूरत नहीं है। Neo Krishi का मॉडल आपको इकाई लगाने से लेकर उत्पादन सीखने और गुणवत्ता वाली खरीद व्यवस्था तक साथ देता है।</p>
+
+      <div class="image-placeholder">
+        <div class="image-placeholder-text">1920×1080 — Neo Krishi टीम द्वारा साइट ऑडिट</div>
+      </div>
+
+      <h3>जगह की जांच और इकाई का चुनाव</h3>
+      <p>पहले आपकी जगह देखी जाती है। उपलब्ध क्षेत्र, पानी, छाया और आपकी जरूरतों के आधार पर उपयुक्त इकाई का आकार तय किया जाता है।</p>
+
+      <h3>पूरी इकाई की स्थापना</h3>
+      <p>हमारे मॉडल में इंजीनियर्ड वर्मी कम्पोस्ट बेड, छाया की व्यवस्था, Eisenia fetida केंचुए और शुरुआती सामग्री शामिल है — सब कुछ तैयार और सेट अप।</p>
+
+      <h3>व्यावहारिक प्रशिक्षण</h3>
+      <p>सामग्री कैसे तैयार करनी है, मिस्टिंग लाइन कैसे सेट करनी है, एंजाइम का उपयोग, नमी प्रबंधन — ये सब सीखें जब तक ये कौशल दूसरी प्रकृति न बन जाएं। हम सैद्धांतिक नहीं, व्यावहारिक प्रशिक्षण देते हैं।</p>
+
+      <h3>एक वर्ष तक सक्रिय सहायता</h3>
+      <p>हम पहले साल आपके साथ रहते हैं, केवल स्थापना के लिए नहीं बल्कि चलती देखभाल के लिए, जब तक आप पूरी उत्पादन प्रक्रिया को आत्मविश्वास से संभाल न लें।</p>
+
+      <h3>गारंटीशुदा खरीद समझौता</h3>
+      <p>Neo Krishi के मॉडल में एक औपचारिक खरीद समझौता शामिल है, जिसमें तय दरें हैं:</p>
+      <ul>
+        <li>कच्ची वर्मी कम्पोस्ट: ₹3.50/किग्रा (छनी हुई, मलबा-मुक्त, ≤30% नमी)</li>
+        <li>कच्चा वर्मीवॉश: ₹15.00/लीटर (फिल्टर किया हुआ, साफ तरल)</li>
+      </ul>
+
+      <h3>आपके उत्पादन का आगे का रास्ता</h3>
+      <p>खरीदी गई कच्ची सामग्री को हमारी लैब में जैविक संस्कृतियों और जैव उर्वरकों से समृद्ध किया जाता है, फिर Neo Gold और Neo Vermiboost जैसे खुदरा उत्पाद के रूप में बेचा जाता है।</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>इकाई का आकार</th>
+              <th>आवश्यक जगह</th>
+              <th>स्थापना लागत</th>
+              <th>अनुमानित वार्षिक</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10-Bed Starter</td>
+              <td>600–900 वर्ग फुट</td>
+              <td>₹72,000</td>
+              <td>~₹1.22 लाख</td>
+            </tr>
+            <tr>
+              <td>50-Bed Commercial</td>
+              <td>3,500–4,500 वर्ग फुट</td>
+              <td>₹2.75 लाख</td>
+              <td>~₹6.10 लाख</td>
+            </tr>
+            <tr>
+              <td>100-Bed Enterprise</td>
+              <td>7,500–9,000 वर्ग फुट</td>
+              <td>₹4.85 लाख</td>
+              <td>~₹12.20 लाख</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><em>नोट: ये वेबसाइट पर दिए गए अनुमान हैं, गारंटी नहीं। वास्तविक उत्पादन और लाभ जगह, मौसम, पानी, श्रम, गुणवत्ता और संचालन पर निर्भर करते हैं।</em></p>
+
+      <h3>यह काम किन लोगों के लिए उपयोगी है</h3>
+      <ul>
+        <li>किसान और जमीन के मालिक</li>
+        <li>खाली या कम उपयोग वाली जगह वाले लोग</li>
+        <li>कृषि व्यवसाय शुरू करने वाले युवा</li>
+        <li>सेवानिवृत्त व्यक्ति</li>
+        <li>कृषि उद्यमी</li>
+        <li>FPO और संस्थाएं</li>
+        <li>पौधशाला और बागवानी व्यवसायी</li>
+      </ul>
+
+      <h3>शुरू कैसे करें</h3>
+      <p>अगर आपके पास लगभग 600 वर्ग फुट या उससे अधिक जगह है और आप वर्मी कम्पोस्टिंग को व्यवसाय के रूप में समझना चाहते हैं, तो अपनी जगह, पानी और उपलब्ध क्षेत्र की जानकारी साझा करें। उसके बाद उपयुक्त इकाई और लागत पर बात की जा सकती है।</p>
+
+      <div class="quote-box">
+        "पहले अपनी जगह और जरूरत को समझिए। फिर सही इकाई चुनिए।"
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <h2>अक्सर पूछे जाने वाले सवाल</h2>
+
+      <h3>क्या घर पर वर्मी कम्पोस्ट बनाया जा सकता है?</h3>
+      <p>हां, छोटे स्तर पर बनाया जा सकता है। व्यावसायिक संचालन के लिए अलग ढांचा और गुणवत्ता नियंत्रण चाहिए।</p>
+
+      <h3>खाद बनने में कितना समय लगता है?</h3>
+      <p>समय सामग्री, मौसम, नमी, तापमान और देखभाल पर निर्भर करता है। हर जगह एक जैसा नहीं होता।</p>
+
+      <h3>क्या यह बहुत समय लेने वाला काम है?</h3>
+      <p>नियमित देखभाल जरूरी है। सामान्य व्यवस्था में लगभग 15–20 मिनट प्रतिदिन का समय लगता है।</p>
+
+      <h3>क्या मुझे खुद खरीदार खोजने होंगे?</h3>
+      <p>Neo Krishi के मॉडल में गुणवत्ता वाले उत्पादन के लिए खरीद समझौता शामिल है।</p>
+
+      <h3>क्या आय पक्की है?</h3>
+      <p>नहीं। वेबसाइट के आंकड़े अनुमान हैं। वास्तविक परिणाम इकाई की स्थिति, संचालन, मौसम और दूसरे कारकों पर निर्भर करते हैं।</p>
+    </div>
+
+  </div>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="word"><span class="neo" style="background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">Neo</span> <span style="color:var(--text-primary);">Krishi</span></span>
+    <p class="footer-copy">© 2026 Neo Krishi. Unlocking Soil Wealth.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var currentTheme = systemDark ? 'dark' : 'light';
+  var currentLang = 'english';
+  var root = document.documentElement;
+
+  function applyTheme(t){
+    currentTheme = t;
+    if(t === 'dark'){
+      root.setAttribute('data-theme','dark');
+      document.getElementById('iconSun').style.display = 'none';
+      document.getElementById('iconMoon').style.display = 'block';
+    } else {
+      root.removeAttribute('data-theme');
+      document.getElementById('iconSun').style.display = 'block';
+      document.getElementById('iconMoon').style.display = 'none';
+    }
+  }
+  applyTheme(currentTheme);
+
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  var nav = document.getElementById('nav');
+  function onScrollNav(){
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, {passive:true});
+
+  // Language toggle
+  var englishContent = document.getElementById('english-content');
+  var hindiContent = document.getElementById('hindi-content');
+  var langBtns = document.querySelectorAll('.lang-btn');
+
+  langBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = this.dataset.lang;
+      currentLang = lang;
+
+      langBtns.forEach(function(b){ b.classList.remove('active'); });
+      this.classList.add('active');
+
+      if(lang === 'hindi'){
+        englishContent.classList.add('lang-hidden');
+        hindiContent.classList.remove('lang-hidden');
+      } else {
+        englishContent.classList.remove('lang-hidden');
+        hindiContent.classList.add('lang-hidden');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
