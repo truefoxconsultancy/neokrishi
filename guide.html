@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neo Krishi Vermicomposting Guide — हिंदी & English</title>
 <meta name="description" content="Complete guide to vermicomposting: what it is, why it matters, how to start, and how Neo Krishi supports vermipreneurs. Available in Hindi and English.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,30 +109,13 @@ img{max-width:100%;display:block;}
 }
 .logo{
   display:flex;
-  flex-direction:column;
-  line-height:1;
+  align-items:center;
   flex:none;
 }
-.logo .word{
-  font-family:var(--font-display);
-  font-weight:800;
-  font-size:21px;
-  letter-spacing:-0.01em;
-}
-.logo .word .neo{
-  background:var(--gradient-brand);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-.logo .word .krishi{color:var(--text-primary);}
-.logo .tag{
-  font-size:9.5px;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--text-secondary);
-  margin-top:3px;
-  font-weight:600;
+.logo img{
+  height:48px;
+  width:auto;
+  object-fit:contain;
 }
 .nav-right{display:flex;align-items:center;gap:14px;flex:none;}
 .theme-toggle{
@@ -212,37 +199,18 @@ img{max-width:100%;display:block;}
   font-weight:700;
 }
 
-/* IMAGE SPACE */
-.image-placeholder{
+/* IMAGE CONTAINER */
+.image-container{
   width:100%;
   aspect-ratio:16/9;
-  background:var(--bg-secondary);
-  border:2px dashed var(--border-subtle);
   border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   margin:32px 0;
-  position:relative;
-  color:var(--text-secondary);
-  font-size:13px;
-  text-align:center;
-  padding:20px;
   overflow:hidden;
 }
-.image-placeholder img{
+.image-container img{
   width:100%;
   height:100%;
   object-fit:cover;
-  position:absolute;
-  inset:0;
-}
-.image-placeholder-text{
-  position:relative;
-  z-index:1;
-  background:var(--bg-secondary);
-  padding:12px 16px;
-  border-radius:8px;
 }
 
 .quote-box{
@@ -304,7 +272,10 @@ table tr:last-child td{border-bottom:none;}
   justify-content:space-between;
   gap:16px;
 }
-.footer-inner .word{font-size:15px;}
+.footer-inner .logo img{
+  height:36px;
+  width:auto;
+}
 .footer-copy{font-size:13px;color:var(--text-secondary);}
 
 .back-link{
@@ -327,8 +298,7 @@ table tr:last-child td{border-bottom:none;}
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="logo" aria-label="Neo Krishi home">
-      <span class="word"><span class="neo">Neo</span> <span class="krishi">Krishi</span></span>
-      <span class="tag">Unlocking Soil Wealth</span>
+      <img src="logo.png" alt="Neo Krishi Logo">
     </a>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
@@ -367,8 +337,8 @@ table tr:last-child td{border-bottom:none;}
       
       <p><strong>Vermicompost</strong>, commonly known as worm compost or worm castings, is a natural process in which suitable organic material is gradually broken down with the help of earthworms and microorganisms.</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — Vermicomposting beds in action</div>
+      <div class="image-container">
+        <img src="images/beds-in-action.jpg" alt="Vermicomposting beds in action">
       </div>
 
       <h3>The Direct Benefit</h3>
@@ -405,8 +375,8 @@ table tr:last-child td{border-bottom:none;}
         <li><strong>Regular oversight</strong> — Consistent daily care</li>
       </ul>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — Site selection and preparation</div>
+      <div class="image-container">
+        <img src="images/site-preparation.jpg" alt="Site selection and preparation">
       </div>
 
       <h3>Step-by-Step Setup Process</h3>
@@ -420,8 +390,8 @@ table tr:last-child td{border-bottom:none;}
       <h4>3. Introduce Earthworms</h4>
       <p>Add suitable earthworms (Eisenia fetida) to prepared organic material. Do not introduce worms directly into fresh or very hot material.</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — Earthworm inoculation and bed preparation</div>
+      <div class="image-container">
+        <img src="images/worm-inoculation.jpg" alt="Earthworm inoculation and bed preparation">
       </div>
 
       <h4>4. Prepare Organic Feedstock</h4>
@@ -460,8 +430,8 @@ table tr:last-child td{border-bottom:none;}
       <h3>The Neo Krishi Model</h3>
       <p>If you have space but lack vermicomposting experience, you don't have to start alone. Neo Krishi's current model supports you from installation through quality production and guaranteed purchase.</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — Neo Krishi team conducting site assessment</div>
+      <div class="image-container">
+        <img src="images/site-assessment.jpg" alt="Neo Krishi team conducting site assessment">
       </div>
 
       <h3>Site Audit and Unit Selection</h3>
@@ -571,8 +541,8 @@ table tr:last-child td{border-bottom:none;}
       
       <p><strong>वर्मी कम्पोस्ट</strong>, जिसे आम बोलचाल में केंचुआ खाद भी कहते हैं, जैविक कचरे को केंचुओं और सूक्ष्मजीवों की मदद से खाद में बदलने की एक प्राकृतिक प्रक्रिया है।</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — वर्मी कम्पोस्टिंग बेड</div>
+      <div class="image-container">
+        <img src="images/beds-in-action.jpg" alt="वर्मी कम्पोस्टिंग बेड">
       </div>
 
       <h3>सीधा फायदा</h3>
@@ -609,8 +579,8 @@ table tr:last-child td{border-bottom:none;}
         <li><strong>नियमित निगरानी</strong> — रोज की देखभाल करने वाला व्यक्ति</li>
       </ul>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — जगह का चुनाव और तैयारी</div>
+      <div class="image-container">
+        <img src="images/site-preparation.jpg" alt="जगह का चुनाव और तैयारी">
       </div>
 
       <h3>चरण-दर-चरण सेटअप प्रक्रिया</h3>
@@ -624,8 +594,8 @@ table tr:last-child td{border-bottom:none;}
       <h4>3. केंचुए डालें</h4>
       <p>उपयुक्त केंचुए (Eisenia fetida) को तैयार जैविक सामग्री में डालें। ताजा या बहुत गर्म सामग्री में सीधे केंचुए न डालें।</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — केंचुआ डालना और बेड की तैयारी</div>
+      <div class="image-container">
+        <img src="images/worm-inoculation.jpg" alt="केंचुआ डालना और बेड की तैयारी">
       </div>
 
       <h4>4. जैविक सामग्री तैयार करें</h4>
@@ -664,8 +634,8 @@ table tr:last-child td{border-bottom:none;}
       <h3>Neo Krishi का मॉडल</h3>
       <p>अगर आपके पास जगह है लेकिन वर्मी कम्पोस्टिंग का अनुभव नहीं है, तो अकेले शुरू करने की जरूरत नहीं है। Neo Krishi का मॉडल आपको इकाई लगाने से लेकर उत्पादन सीखने और गुणवत्ता वाली खरीद व्यवस्था तक साथ देता है।</p>
 
-      <div class="image-placeholder">
-        <div class="image-placeholder-text">1920×1080 — Neo Krishi टीम द्वारा साइट ऑडिट</div>
+      <div class="image-container">
+        <img src="images/site-assessment.jpg" alt="Neo Krishi टीम द्वारा साइट ऑडिट">
       </div>
 
       <h3>जगह की जांच और इकाई का चुनाव</h3>
@@ -771,7 +741,9 @@ table tr:last-child td{border-bottom:none;}
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span class="word"><span class="neo" style="background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">Neo</span> <span style="color:var(--text-primary);">Krishi</span></span>
+    <a href="index.html" class="logo" aria-label="Neo Krishi home">
+      <img src="logo.png" alt="Neo Krishi Logo">
+    </a>
     <p class="footer-copy">© 2026 Neo Krishi. Unlocking Soil Wealth.</p>
   </div>
 </footer>
