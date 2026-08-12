@@ -85,6 +85,68 @@ img{max-width:100%;display:block;}
   padding:0 24px;
 }
 
+/* BUTTON STYLES */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  padding:18px 40px;
+  border-radius:14px;
+  border:none;
+  transition:all .3s cubic-bezier(.22,.9,.34,1);
+  white-space:nowrap;
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,0);
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.1);
+  opacity:0;
+  transition:opacity .3s ease;
+  border-radius:14px;
+}
+
+.btn:hover::before {
+  opacity:1;
+}
+
+.btn-primary {
+  background:linear-gradient(135deg,var(--green-accent),var(--green-mid),var(--green-deep));
+  color:#F5FFEF;
+  box-shadow:0 8px 24px rgba(46,125,50,0.32),inset 0 1px 0 rgba(255,255,255,0.2);
+  font-size:18px;
+  padding:20px 48px;
+}
+
+.btn-primary:hover {
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px rgba(46,125,50,0.42),inset 0 1px 0 rgba(255,255,255,0.2);
+  filter:brightness(1.08);
+}
+
+.btn-primary:active {
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(46,125,50,0.28),inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+[data-theme="dark"] .btn-primary {
+  box-shadow:0 8px 24px rgba(140,198,63,0.35),inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  box-shadow:0 14px 32px rgba(140,198,63,0.45),inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
 /* NAV */
 .nav{
   position:sticky;
@@ -737,13 +799,26 @@ table tr:last-child td{border-bottom:none;}
 
 </div>
 
+<section style="background:var(--bg-secondary);padding:80px 0;margin-top:60px;position:relative;">
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size:clamp(28px,4vw,48px);margin-bottom:24px;font-family:var(--font-display);font-weight:800;color:var(--text-primary);letter-spacing:-0.02em;">Ready to Build Your Vermicomposting Business?</h2>
+    <p style="color:var(--text-secondary);font-size:18px;max-width:720px;margin:0 auto 48px;line-height:1.7;">Join 300+ vermipreneurs already generating guaranteed income from their soil. Complete site assessment and personalized setup plan — no cost, no obligation.</p>
+    <a href="https://forms.gle/RwqArNWNrBzks3VW7" class="btn btn-primary" target="_blank" style="position:relative;z-index:2;">
+      <svg style="width:20px;height:20px;flex:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+      Apply for Your Setup
+    </a>
+  </div>
+</section>
+
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <a href="index.html" class="logo" aria-label="Neo Krishi home">
-      <img src="logo.png" alt="Neo Krishi Logo">
-    </a>
+    <span class="word"><span class="neo" style="background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;">Neo</span> <span style="color:var(--text-primary);">Krishi</span></span>
+    <div style="display:flex;gap:24px;font-size:14px;color:var(--text-secondary);flex-wrap:wrap;">
+      <a href="mailto:neokrishipvt@gmail.com" style="color:var(--text-secondary);">neokrishipvt@gmail.com</a>
+      <a href="tel:+919102635407" style="color:var(--text-secondary);">+91 9102635407</a>
+    </div>
     <p class="footer-copy">© 2026 Neo Krishi. Unlocking Soil Wealth.</p>
   </div>
 </footer>
